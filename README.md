@@ -1,4 +1,11 @@
 # Reflex Arena Dedicated Server Guide Linux
+Reflex is a competitive Arena FPS that combines modern tech with the speed, precision and freedom of a 90s shooter.
+[steam store page](http://store.steampowered.com/app/328070/Reflex_Arena/)
+[official website](https://www.reflexarena.com/)
+[official forums](http://forums.reflexarena.com/)
+[subreddit](https://www.reddit.com/r/reflex/)
+[discord](http://discord.gg/reflex#button3)
+
 <br />
 <br />
 <br />
@@ -46,7 +53,7 @@
 
 <br />
 
-#### wine **(only do to replace winehq-staging if necessary)**
+#### wine **(only do to change winehq-staging if necessary)**
 ```apt-get install -y wine```
 
 You can change version from winehq-staging to wine and vice-versa by using the regular install commands above, it will override the currently installed wine version.
