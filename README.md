@@ -1,4 +1,4 @@
-# Reflex Arena Dedicated Server Guide Linux
+# <center>Reflex Arena Dedicated Server Guide Linux</center>
 ## Requirements
 * Debian 9
 * 1 CPU and 1GB of RAM available on your server.
@@ -35,14 +35,13 @@ The Reflex Arena server files will be installed in the "steam" user home directo
 Skip this part if you already have a steam user on your server.
 #### Adding the user
 ```useradd steam -m -r -s /bin/bash```
-#### Changing the password (optional)
-I recommend setting
-
+#### Changing the password (recommended, optional)
 (If you plan on logging as steam in a ssh session, don't forget to allow ssh password authentication for non root users in your ssh config file)
+
 ```echo "steam:yoursteampassword" | chpasswd```
 
 ### Logging as steam
-```su steam``` and ```script /dev/null``` 
+```su steam``` and when logged in as steam : ```script /dev/null``` 
 
 from another machine : ```ssh steam@your_serversip``` (or use PuTTY)
 
