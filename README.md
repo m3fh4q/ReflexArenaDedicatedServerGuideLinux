@@ -2,6 +2,7 @@
 <br />
 <br />
 <br />
+<br />
 
 ## Requirements
 * Debian 9
@@ -13,6 +14,10 @@
 * Depending on the latest Reflex Arena build and wine version at the time of using this guide, you may need to use a different version of wine.
 * Either **winehq-staging** or **wine**
 * To check which version of wine you currently have installed use the following command : ```wine --version```
+
+<br />
+<br />
+<br />
 
 ## Installation 1/2 (as root) :
 ### Dependencies
@@ -63,17 +68,13 @@ Skip this part if you already have a steam user on your server.
 
 #### Adding the user
 ```useradd steam -m -r -s /bin/bash```
-
 <br />
-
 #### Changing the password (recommended, optional)
 ```echo "steam:yoursteampassword" | chpasswd```
 
 (If you plan on logging as steam in a ssh session, don't forget to allow ssh password authentication for non root users in your ssh config file)
-
 <br />
 <br />
-
 ### Login as steam
 ```su steam``` and when logged in as steam : ```script /dev/null``` 
 
