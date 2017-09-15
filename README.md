@@ -36,10 +36,10 @@ Skip this part if you already have a steam user on your server.
 #### Adding the user
 ```useradd steam -m -r -s /bin/bash```
 #### Changing the password (optional)
-It can be handy to set a password now to just log in as steam later on.
+I recommend setting
 
 (If you plan on logging as steam in a ssh session, don't forget to allow ssh password authentication for non root users in your ssh config file)
-```echo "steam:oasidqjweqopasdhnoqw" | chpasswd```
+```echo "steam:yoursteampassword" | chpasswd```
 
 ### Logging as steam
 ```su steam``` and ```script /dev/null``` 
