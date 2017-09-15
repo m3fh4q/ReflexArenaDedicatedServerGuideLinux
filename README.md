@@ -18,7 +18,7 @@ Reflex is a competitive Arena FPS that combines modern tech with the speed, prec
 
 <br />
 
-### Known problem : wine versions and Reflex Arena builds
+## Known problem : wine versions and Reflex Arena builds
 * Depending on the latest Reflex Arena build and wine version at the time of using this guide, you may need to use a different version of wine.
 * Either **winehq-staging** or **wine**
 * To check which version of wine you currently have installed use the following command : ```wine --version```
