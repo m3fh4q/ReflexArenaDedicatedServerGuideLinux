@@ -61,7 +61,7 @@ You can change version from winehq-staging to wine and vice-versa by using the r
 
 <br />
 
-#### Check currently installed wine version (optional)
+#### Check currently installed wine version (optional, recommended)
 ```wine --version```
 
 <br />
@@ -77,7 +77,7 @@ Skip this part if you already have a steam user on your server.
 
 <br />
 
-#### Change the steam password (recommended, optional)
+#### Change the steam password (optional, recommended)
 ```echo "steam:yoursteampassword" | chpasswd```
 
 (If you plan on logging as steam in a ssh session, don't forget to allow ssh password authentication for non root users in your ssh config file)
