@@ -1,10 +1,10 @@
 # Reflex Arena Dedicated Server Guide Linux
 Reflex is a competitive Arena FPS that combines modern tech with the speed, precision and freedom of a 90s shooter.
 
-**[Steam store page](http://store.steampowered.com/app/328070/Reflex_Arena/) 
-[Official website](https://www.reflexarena.com/) 
-[Forums](http://forums.reflexarena.com/) 
-[Subreddit](https://www.reddit.com/r/reflex/) 
+**[Steam store page](http://store.steampowered.com/app/328070/Reflex_Arena/)   
+[Official website](https://www.reflexarena.com/)   
+[Forums](http://forums.reflexarena.com/)   
+[Subreddit](https://www.reddit.com/r/reflex/)   
 [Discord](http://discord.gg/reflex#button3)**
 
 <br />
