@@ -13,12 +13,13 @@
 ## Installation 1/2 (root part)
 ### Dependencies
 #### system
-```dpkg --add-architecture i386
-apt-get install -y apt-transport-https
-wget -nc https://repos.wine-staging.com/wine/Release.key
-apt-key add Release.key
-echo deb https://dl.winehq.org/wine-builds/debian/ stretch main >> /etc/apt/sources.list
-apt-get update -y```
+```dpkg --add-architecture i386```
+```apt-get install -y apt-transport-https```
+```wget -nc https://repos.wine-staging.com/wine/Release.key```
+```apt-key add Release.key```
+```echo deb https://dl.winehq.org/wine-builds/debian/ stretch main >> /etc/apt/sources.list```
+```apt-get update -y```
+
 #### screen
 ```apt-get install -y screen```
 
