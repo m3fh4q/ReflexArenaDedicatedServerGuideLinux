@@ -1,14 +1,18 @@
-# <center>Reflex Arena Dedicated Server Guide Linux</center>
+# Reflex Arena Dedicated Server Guide Linux
+<br />
+<br />
+<br />
+<br />
 ## Requirements
 * Debian 9
 * 1 CPU and 1GB of RAM available on your server.
 
-### wine version problem
-* Depending on the current Reflex Arena and wine versions at the time of using this guide, you may need to use a different version of wine.
+### known problem : wine versions and Reflex Arena builds
+* Depending on the latest Reflex Arena build and wine version at the time of using this guide, you may need to use a different version of wine.
 * Either **winehq-staging** or **wine**
 * To check which version of wine you currently have installed use the following command : ```wine --version```
 
-## Installation 1/2 (root part)
+## Installation 1/2 (as root) :
 ### Dependencies
 #### system
 ```dpkg --add-architecture i386```
@@ -48,4 +52,4 @@ Skip this part if you already have a steam user on your server.
 **OR**
 
 from another machine : ```ssh steam@your_serversip``` (or use PuTTY)
-## Installation 2/2 (steam part)
+## Installation 2/2 (as steam) :
