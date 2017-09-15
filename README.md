@@ -80,7 +80,7 @@ Skip this part if you already have a steam user on your server.
 #### Change the steam password (optional, recommended)
 ```echo "steam:yoursteampassword" | chpasswd```
 
-(If you plan on logging as steam in a ssh session, don't forget to allow ssh password authentication for non root users in your ssh config file)
+(If you plan on logging as steam in a ssh session, don't forget to allow ssh password authentication for non root users in your ssh config file).
 
 <br />
 <br />
