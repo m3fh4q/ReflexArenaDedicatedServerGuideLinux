@@ -28,7 +28,7 @@ Reflex is a competitive Arena FPS that combines modern tech with the speed, prec
 <br />
 
 ## Installation 1/2 (as root) :
-### Dependencies
+### Install dependencies
 #### system
 ```dpkg --add-architecture i386```
 
@@ -61,23 +61,23 @@ You can change version from winehq-staging to wine and vice-versa by using the r
 
 <br />
 
-#### Checking currently installed wine version
+#### Check currently installed wine version (optional)
 ```wine --version```
 
 <br />
 <br />
 
-### Adding the steam user (if necessary)
+### Add the steam user (if necessary)
 The Reflex Arena server files will be installed in the "steam" user home directory, server instances will be launched as the steam user.
 
 Skip this part if you already have a steam user on your server.
 
-#### Adding the user
+#### Add the user
 ```useradd steam -m -r -s /bin/bash```
 
 <br />
 
-#### Changing the password (recommended, optional)
+#### Change the steam password (recommended, optional)
 ```echo "steam:yoursteampassword" | chpasswd```
 
 (If you plan on logging as steam in a ssh session, don't forget to allow ssh password authentication for non root users in your ssh config file)
