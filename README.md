@@ -203,10 +203,10 @@ If apache2 is already installed and running, just do the configuration and resta
 
 All the operations will be done as root, ```su``` if necessary.
 
-##Apache 2 install
+## Apache 2 install
 ```apt-get install -y apache2```
 
-##Apache 2 replays folder configuration
+## Apache 2 replays folder configuration
 * Open the config file : ```nano /etc/apache2/sites-enabled/000-default.conf```
 * (Ctrl-O to save, Ctrl-X to exit the editor)
 * Add the following paragraph within the <Virtual host> statement :
@@ -223,7 +223,7 @@ Require all granted
 
 * Your 000-default.conf file should look like something like [this](https://pastebin.com/5NYu3zRK)
 
-##Apache 2 restart
+## Apache 2 restart
 In order to apply the config change, you must restart the webserver !
 
 ```service apache2 restart```
