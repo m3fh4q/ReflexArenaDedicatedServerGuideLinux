@@ -14,8 +14,8 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 
 Table of contents :
 
-1. 	[Requirements](##Requirements)
-2. 	[Installation 1/2](##Installation1/2)
+1. 	[Requirements](#Requirements)
+2. 	[Installation 1/2](#Installation1/2)
 
 <br />
 <br />
