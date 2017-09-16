@@ -31,12 +31,12 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 <br />
 
 
-## Requirements <a name="Requirements"></a>
+## <a name="Requirements"></a>Requirements
 * Debian 9
 * 1 CPU and 1GB of RAM available on your server.
 * I recommend using the $2.50 or $5 offer from [Vultr](https://www.vultr.com/pricing/) (not affiliated with them, it's just what I currently use)
 
-## Known problem : wine versions and Reflex Arena builds <a name="Problem"></a>
+## <a name="Problem"></a>Known problem : wine versions and Reflex Arena builds
 * When starting the server, it'll refuse to load if you're using an incompatible wine version.
 * Depending on the Reflex Arena build you're using, either __winehq-staging__ or __wine__ will work.
 * Change from one to another if necessary (check the wine section below in Installation 1/2).
@@ -49,7 +49,7 @@ wine --version
 <br />
 <br />
 
-# Installation 1/2 (as root) : <a name="Installation1/2"></a>
+# <a name="Installation1/2"></a>Installation 1/2 (as root) :
 ```
 su
 ```
@@ -123,7 +123,7 @@ echo "steam:yoursteampassword" | chpasswd
 <br />
 <br />
 
-# Installation 2/2 (as steam) : <a name="Installation2/2"></a>
+# <a name="Installation2/2"></a>Installation 2/2 (as steam) :
 ```
 su steam
 ``` 
@@ -272,7 +272,7 @@ screen -r reflex_server1
 <br />
 <br />
 
-# Serving replays using a webserver (optional, recommended) <a name="Serving"></a>
+# <a name="Serving"></a>Serving replays using a webserver (optional, recommended)
 Replays will be recorded as long as :
 * the /home/steam/reflex/replays/ folder is present and has rwx permission for the steam user.
 * server is running sv_autorecord 1
@@ -324,7 +324,7 @@ __Replays from your server (all of your Reflex Arena dedicated server instances)
 <br />
 <br />
 
-# Auto replays purge script (optional, recommended) <a name="Purge"></a>
+# <a name="Purge"></a>Auto replays purge script (optional, recommended)
 If you don't want to manually delete replays when there's too many of them, you can setup a script that will be run daily using cron. The following should be done as the steam user. 
 
 ### Create the script
