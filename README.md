@@ -1,11 +1,11 @@
 # Reflex Arena Dedicated Server Guide Linux
 Reflex Arena is a competitive Arena FPS that combines modern tech with the speed, precision and freedom of a 90s shooter.
 
-**[Steam store page](http://store.steampowered.com/app/328070/Reflex_Arena/) - 
+__[Steam store page](http://store.steampowered.com/app/328070/Reflex_Arena/) - 
 [Official website](https://www.reflexarena.com/) - 
 [Forums](http://forums.reflexarena.com/) - 
 [Subreddit](https://www.reddit.com/r/reflex/) - 
-[Discord](http://discord.gg/reflex#button3)**
+[Discord](http://discord.gg/reflex#button3)__
 
 <br />
 <br />
@@ -22,7 +22,7 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 
 ## Known problem : wine versions and Reflex Arena builds
 * When starting the server, it'll refuse to load if you're using an incompatible wine version.
-* Depending on the Reflex Arena build you're using, either **winehq-staging** or **wine** will work.
+* Depending on the Reflex Arena build you're using, either __winehq-staging__ or __wine__ will work.
 * Change from one to another if necessary (check the wine section below in the Installation 1/2).
 * To check which version of wine you currently have installed use the following command : ```wine --version```
 
@@ -52,7 +52,7 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 ### winehq-staging
 ```apt-get install -y winehq-staging```
 
-### wine **(only do to change winehq-staging if necessary)**
+### wine __(only do to change winehq-staging if necessary)__
 ```apt-get install -y wine```
 
 You can change version from winehq-staging to wine and vice-versa by using the regular install commands above, it will override the currently installed wine version.
@@ -117,7 +117,7 @@ It's best to leave this file untouched and use start parameters after the launch
 # Managing the server(s) (as the steam user !)
 ```su steam``` and ```script /dev/null```
 ## Operations
-The server(s) can be fully managed with the steam user, **log in as steam for this section**
+The server(s) can be fully managed with the steam user, __log in as steam for this section__
 ### Create screen session(s)
 ```screen -dmS reflex_server1``` will create a detached terminal called "reflex_server1"
 
@@ -150,7 +150,7 @@ screen -S reflex_server1 -X stuff "cd /home/steam/reflex/ && wineconsole reflexd
 "
 ```
 
-**Or (if you're using a seperate server cfg file)**
+__Or (if you're using a seperate server cfg file)__
 
 ```
 screen -S reflex_server1 -X stuff "loadconfig custom_server_cfg
@@ -159,7 +159,7 @@ screen -S reflex_server1 -X stuff "loadconfig custom_server_cfg
 
 #### wine version problem
 
-When you start the server, it may not work, this could be due to the current wine version not being compatible with the current Reflex build, in this case, **change from winhq-staging to wine or vice versa**, instructions in the Installation 1/2 section.
+When you start the server, it may not work, this could be due to the current wine version not being compatible with the current Reflex build, in this case, __change from winhq-staging to wine or vice versa__, instructions in the Installation 1/2 section.
 
 ### Stop the server
 ```
@@ -227,4 +227,4 @@ In order to apply the config change, you must restart the webserver !
 
 ```service apache2 restart```
 
-**Replays can now be found at the following url : http://yourserversip/replays/**
+__Replays can now be found at the following url : http://yourserversip/replays/__
