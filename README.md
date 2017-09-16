@@ -232,3 +232,24 @@ In order to apply the config change, you must restart the webserver !
 <br />
 
 __Replays from your server (All of your Reflex instances if more than 1) cnow be found at the following URL : http://yourserversip/replays/__
+
+<br />
+<br />
+<br />
+
+# Auto replays purge script
+If you don't want to manually delete replays when there's too many of them, you can setup a script that will be run daily using cron. The following should be done as the steam user. 
+
+## Create the script
+```su steam```
+
+```cd ~ && printf 'find /home/steam/reflex/ds_0.48.3/reflex_ds/replays/ -mindepth 1 -type f -mtime +60 -print0 | xargs -r0 rm -- –' >> replay_purge.sh && chmod +x replay_purge.sh```
+
+The +number value in the script is the age threshold after which replay files will be deleted, 60 in the command above.
+
+## Add the script to cron job
+```(crontab -l ; echo "* * */1 * * /home/steam/replay_purge.sh") | crontab - -``` 
+
+The script will executed once a day.
+
+__Files (Replays) from the /home/steam/reflex/replays directory will get deleted if they're older than 60 days.
