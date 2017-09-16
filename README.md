@@ -165,7 +165,6 @@ When you start the server, it may not work, this could be due to the current win
 ```
 screen -S screen_session_name -X stuff "quit
 "
-
 ```
 
 Using the example in this guide :
@@ -183,7 +182,7 @@ screen -S reflex_server1 -X stuff "quit
 To use the server console, you need to enter the screen session associated with it : 
 ```screen -r screen_session_name``` 
 
-press Ctrl+A and Ctrl+D at the same time to detach from session 
+Press Ctrl+A and Ctrl+D at the same time to detach from session 
 
 Using the example in this guide :
 ```screen -r reflex_server1```
