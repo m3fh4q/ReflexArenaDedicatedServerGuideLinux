@@ -20,8 +20,6 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 * Debian 9
 * 1 CPU and 1GB of RAM available on your server.
 
-<br />
-
 ## Known problem : wine versions and Reflex Arena builds
 * Depending on the latest Reflex Arena build and wine version at the time of using this guide, you may need to use a different version of wine.
 * Either **winehq-staging** or **wine**
@@ -90,22 +88,14 @@ Or from another machine :
 ### Install steamcmd 
 ```cd ~ && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && tar -xf steamcmd_linux.tar.gz```
 
-<br />
-
 ### Create the steamcmd script to install Reflex Arena
 ```printf '@ShutdownOnFailedCommand 1\n@NoPromptForPassword 1\n@sSteamCmdForcePlatformType windows\nlogin anonymous\nforce_install_dir /home/steam/reflex\napp_update 329740 validate\nquit' > reflex.txt```
-
-<br />
 
 ### Run steamcmd and run the script (this will install Reflex Arena files)
 ```./steamcmd.sh +runscript reflex.txt```
 
-<br />
-
 ### Create the replays directory
 ```mkdir /home/steam/reflex/replays```
-
-<br />
 
 Your Reflex Arena server is now installed and ready to be launched.
 
@@ -132,6 +122,8 @@ This will create a detached terminal called "reflex_server1"
 
 Each instance of a reflex server needs to be launched in a detached terminal using [screen](https://www.gnu.org/software/screen/manual/screen.html)
 
+Open as many reflex sessions as Reflex server instances you intend to open, a 1 CPU and 1GB of RAM server can usually handle 2 Reflex server instances with sv_maxclients 8.
+
 <br />
 
 ### Prepare your server launch settings string
@@ -139,26 +131,20 @@ Prepare a string of settings that will follow the launch command, use all the ne
 
 Exanple of a string of settings : 
 
->+sv_hostname m3fh4q's Reflex server +sv_steam 1 +sv_autorecord 1 sv_startruleset competitive +sv_starwmap 608558613 +rcon_password myrcon +sv_refpassword myrefpwd +sv_country FR +sv_gameport 25787
+>+sv_hostname m3fh4q's Reflex server +sv_steam 1 +sv_autorecord 1 sv_startruleset competitive +sv_starwmap 608558613 +rcon_password myrcon +sv_refpassword myrefpwd +sv_country FR +sv_maxclients 8 +sv_gameport 25787
 
 The most important command is sv_gameport , each server instance on your server needs to have a different one, sample : 25787 and 25788 if you have 2 servers.
 
 Create your own string of settings and save it somewhere or create a .cfg file in the /home/steam/reflex directory.
 
-<br />
-<br />
-
 ### Start the server
 ```screen -S **screen_session_name** -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe **launch setting string**"```
 
 Using the example in this guide :
-```screen -S reflex_server1 -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe +sv_hostname m3fh4q's Reflex server +sv_steam 1 +sv_autorecord 1 sv_startruleset competitive +sv_starwmap 608558613 +rcon_password myrcon +sv_refpassword myrefpwd +sv_country FR +sv_gameport 25787"```
+```screen -S reflex_server1 -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe +sv_hostname m3fh4q's Reflex server +sv_steam 1 +sv_autorecord 1 sv_startruleset competitive +sv_starwmap 608558613 +rcon_password myrcon +sv_refpassword myrefpwd +sv_country FR +sv_maxclients 8 +sv_gameport 25787"```
 
 **Or (if you're using a seperate server cfg file)**
 ```screen -S reflex_server1 -X stuff "loadconfig custom_server_cfg"```
-
-<br />
-<br />
 
 ### Stop the server
 ```screen -S **screen_session_name** -X stuff "quit"```
@@ -166,18 +152,12 @@ Using the example in this guide :
 Using the example in this guide :
 ```screen -S reflex_server1 -X stuff "quit"```
 
-<br />
-<br />
-
 ### Using the server console
 To use the server console, you need to enter the screen session associated with it
 ```screen -r **screen_session_name**``` use Ctrl+A and Ctrl+D at the same time to detach from session 
 
 Using the example in this guide :
 ```screen -r **reflex_server1**```
-
-<br />
-<br />
 
 ### Update the server(s)
 * First, shutdown the Reflex instance(s) running on your server (Stop the server(s)) using the instructions above.
