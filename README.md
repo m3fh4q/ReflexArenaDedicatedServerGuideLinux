@@ -316,7 +316,7 @@ apt-get install -y apache2
 
 * Your 000-default.conf file should look like something like [this](https://pastebin.com/5NYu3zRK)
 
-### restart apache2
+### Restart apache2
 In order to apply the config change, you must restart the webserver !
 
 ```
