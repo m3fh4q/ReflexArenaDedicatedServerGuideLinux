@@ -16,13 +16,13 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 <br />
 
 
-### Requirements
+## Requirements
 * Debian 9
 * 1 CPU and 1GB of RAM available on your server.
 
 <br />
 
-### Known problem : wine versions and Reflex Arena builds
+## Known problem : wine versions and Reflex Arena builds
 * Depending on the latest Reflex Arena build and wine version at the time of using this guide, you may need to use a different version of wine.
 * Either **winehq-staging** or **wine**
 * To check which version of wine you currently have installed use the following command : ```wine --version```
@@ -31,9 +31,9 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 <br />
 <br />
 
-## Installation 1/2 (execute these commands as the root user !) :
-### Install dependencies
-#### system
+# Installation 1/2 (execute these commands as the root user !) :
+## Install dependencies
+### system
 ```dpkg --add-architecture i386```
 
 ```apt-get install -y apt-transport-https```
@@ -48,24 +48,24 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 
 <br />
 
-#### screen
+### screen
 ```apt-get install -y screen```
 
 <br />
 
-#### winehq-staging
+### winehq-staging
 ```apt-get install -y winehq-staging```
 
 <br />
 
-#### wine **(only do to change winehq-staging if necessary)**
+### wine **(only do to change winehq-staging if necessary)**
 ```apt-get install -y wine```
 
 You can change version from winehq-staging to wine and vice-versa by using the regular install commands above, it will override the currently installed wine version.
 
 <br />
 
-#### Check currently installed wine version (optional, recommended)
+### Check currently installed wine version (optional, recommended)
 ```wine --version```
 
 <br />
@@ -76,12 +76,12 @@ The Reflex Arena server files will be installed in the "steam" user home directo
 
 Skip this part if you already have a steam user on your server.
 
-#### Add the user
+### Add the user
 ```useradd steam -m -r -s /bin/bash```
 
 <br />
 
-#### Change the steam password (optional, recommended)
+### Change the steam password (optional, recommended)
 ```echo "steam:yoursteampassword" | chpasswd```
 
 (If you plan on logging as steam in a ssh session, don't forget to allow ssh password authentication for non root users in your ssh config file).
@@ -99,37 +99,37 @@ Or from another machine :
 <br />
 <br />
 
-## Installation 2/2 (execute these commands as the steam user !) :
-###  Install Server files
-#### Install steamcmd 
+# Installation 2/2 (execute these commands as the steam user !) :
+## Install Server files
+### Install steamcmd 
 ```cd ~ && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && tar -xf steamcmd_linux.tar.gz```
 
 <br />
 
-#### Create the steamcmd script to install Reflex Arena
+### Create the steamcmd script to install Reflex Arena
 ```printf '@ShutdownOnFailedCommand 1\n@NoPromptForPassword 1\n@sSteamCmdForcePlatformType windows\nlogin anonymous\nforce_install_dir /home/steam/reflex\napp_update 329740 validate\nquit' > reflex.txt```
 
 <br />
 
-#### Run steamcmd and run the script (this will install Reflex Arena files)
+### Run steamcmd and run the script (this will install Reflex Arena files)
 ```./steamcmd.sh +runscript reflex.txt```
 
 <br />
 
-#### Create the replays directory
+### Create the replays directory
 ```mkdir /home/steam/reflex/replays```
 
 <br />
 
-Your Reflex Arena server is now ready to be launched
+Your Reflex Arena server is now installed and ready to be launched.
 
-#### edit dedicatedserver.cfg (optional, not recommended)
+### edit dedicatedserver.cfg (optional, not recommended)
 ```nano /home/steam/reflex/dedicatedserver.cfg```  (Ctrl-O to save, Ctrl-X to exit the editor)
 
 This file contains the server settings that will be applied when you launch the server. I recommend reading the file, it countains comments at each setting detailing what it does.
 ```more /home/steam/reflex/dedicatedserver.cfg```
 
-I don't recommend modifying this filet ones as it will be used for all your Reflex Arena server instances running on your server. (You can however duplicate it and have your custom settings there)
+I don't recommend modifying this file as it will be used for all your Reflex Arena server instances running on your server. (You can however duplicate it and have your custom settings there)
 
 It's best to leave this file untouched and apply changes through the start parameters after the launch command (eg : +sv_hostname m3fh4q's Reflex server)
 
@@ -137,7 +137,8 @@ It's best to leave this file untouched and apply changes through the start param
 <br />
 <br />
 
-## Managing the server(s)
+# Managing the server(s)
+## Operations
 The server(s) can be fully managed with the steam user, **log in as steam for this section**
 ### Create screen session(s)
 ```screen -dmS reflex_server1```
@@ -192,7 +193,7 @@ Using the example in this guide :
 <br />
 <br />
 
-# Update the server(s)
+### Update the server(s)
 * First, shutdown the Reflex instance(s) running on your server (Stop the server(s)) using the instructions above.
 
 * run steamcmd again : ```./steamcmd.sh +runscript reflex.txt```
