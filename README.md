@@ -19,8 +19,8 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 
 * [Requirements](#Requirements)
 * [Known problem](#Problem)
-* [Installation 1/2, root](#Installation1/2)
-* [Installation 2/2, steam](#Installation2/2)
+* [Installation 1/2 (as root)](#Installation1/2)
+* [Installation 2/2 (as steam)](#Installation2/2)
 * [Managing the server](#Managing)
 * [Serving replays using a webserver](#Serving)
 * [Auto replays purge script](#Purge)
@@ -39,7 +39,7 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 ## Known problem : wine versions and Reflex Arena builds <a name="Problem"></a>
 * When starting the server, it'll refuse to load if you're using an incompatible wine version.
 * Depending on the Reflex Arena build you're using, either __winehq-staging__ or __wine__ will work.
-* Change from one to another if necessary (check the wine section below in the Installation 1/2).
+* Change from one to another if necessary (check the wine section below in Installation 1/2).
 * To check which version of wine you currently have installed use the following command : 
 ```
 wine --version
@@ -49,7 +49,7 @@ wine --version
 <br />
 <br />
 
-# Installation 1/2 (as the root user) : <a name="Installation1/2"></a>
+# Installation 1/2 (as root) : <a name="Installation1/2"></a>
 ```
 su
 ```
@@ -89,12 +89,12 @@ apt-get install -y screen
 apt-get install -y winehq-staging
 ```
 
-### wine __(skip it, only do to change from winehq-staging if necessary)__
+### _wine_ __(skip it, only do to change from winehq-staging if necessary)__
 ```
 apt-get install -y wine
 ```
 
-You can change version from winehq-staging to wine and vice-versa by using the regular install commands above, it will override the currently installed wine version.
+You can change version from winehq-staging to wine and vice-versa by using the regular install commands above, it will overwrite the currently installed wine version.
 
 ### Check currently installed wine version (optional, recommended)
 ```
@@ -134,7 +134,7 @@ Or from another machine :
 <br />
 <br />
 
-# Installation 2/2 (as the steam user) : <a name="Installation2/2"></a>
+# Installation 2/2 (as steam) : <a name="Installation2/2"></a>
 ```
 su steam
 ``` 
@@ -186,6 +186,7 @@ It's best to leave this file untouched and use start parameters after the launch
 <br />
 
 # Managing the server(s) (as the steam user) <a name="Managing"></a>
+The server(s) will be fully managed with the steam user, __log in as steam for this section__
 ```
 su steam
 ``` 
@@ -194,7 +195,6 @@ And
 script /dev/null
 ```
 ## Operations
-The server(s) can be fully managed with the steam user, __log in as steam for this section__
 ### Create screen session(s)
 ```
 screen -dmS reflex_server1
@@ -204,10 +204,10 @@ This will create a detached terminal called "reflex_server1"
 
 Each instance of a reflex server needs to be launched in a detached terminal using [screen](https://www.gnu.org/software/screen/manual/screen.html)
 
-Open as many reflex sessions as Reflex server instances you intend to open, a 1 CPU and 1GB of RAM server can usually handle 2 Reflex server instances with sv_maxclients 8.
+Open as many screen sessions as Reflex Arena dedicated server instances you intend to open, a 1 CPU and 1GB of RAM server can usually handle 2 Reflex server instances with sv_maxclients 8.
 
-### Prepare your server launch settings string
-Prepare a string of settings that will follow the launch command, use all the necessary sv_commands (can be found in dedicatedserver.cfg)
+### Prepare your server(s) launch settings string
+Prepare a string of settings that will follow the launch command, use all the necessary sv_ commands (can be found in dedicatedserver.cfg)
 
 Example of a string of settings : 
 
@@ -325,7 +325,7 @@ service apache2 restart
 <br />
 <br />
 
-__Replays from your server (All of your Reflex instances if more than 1) cnow be found at the following URL : http://yourserversip/replays/__
+__Replays from your server (all of your Reflex Arena dedicated server instances) can now be found at the following URL : http://yourserversip/replays/__
 
 <br />
 <br />
