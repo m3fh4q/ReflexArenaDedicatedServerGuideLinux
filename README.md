@@ -273,7 +273,10 @@ You can setup a web server easily serving the replays folder containing the repl
 
 If apache2 is already installed and running, just do the configuration and restart part.
 
-All the operations will be done as root, ```su``` if necessary.
+All the operations will be done as root. 
+```
+su
+``` 
 
 ## Apache 2 install
 ```
@@ -313,7 +316,7 @@ __Replays from your server (All of your Reflex instances if more than 1) cnow be
 <br />
 <br />
 
-# Auto replays purge script
+# Auto replays purge script (optional, recommended)
 If you don't want to manually delete replays when there's too many of them, you can setup a script that will be run daily using cron. The following should be done as the steam user. 
 
 ## Create the script
@@ -327,7 +330,7 @@ cd ~ && printf 'find /home/steam/reflex/replays/ -mindepth 1 -type f -mtime +60 
 
 The +number value in the script is the age threshold after which replay files will be deleted, 60 in the command above.
 
-## Add the script to cron job
+## Add the script to cron
 ```
 (crontab -l ; echo "* * */1 * * /home/steam/replay_purge.sh") | crontab - -
 ``` 
