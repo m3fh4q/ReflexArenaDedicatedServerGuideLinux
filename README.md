@@ -178,7 +178,7 @@ It's best to leave this file untouched and use start parameters after the launch
 <br />
 <br />
 
-# Managing the server(s) <a name="Managing"></a>
+# <a name="Managing"></a>Managing the server(s)
 The server(s) will be fully managed with the steam user, __log in as steam for this section__
 ```
 su steam
