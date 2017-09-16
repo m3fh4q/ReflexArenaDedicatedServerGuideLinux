@@ -120,7 +120,13 @@ Or from another machine :
 <br />
 
 # Installation 2/2 (as the steam user) :
-```su steam``` and ```script /dev/null```
+```
+su steam
+``` 
+And
+```
+script /dev/null
+```
 ## Install Server files
 ### Install steamcmd 
 ```
