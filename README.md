@@ -101,7 +101,7 @@ You can change version from winehq-staging to wine and vice-versa by using the r
 wine --version
 ```
 
-### Add the steam user (if necessary)
+## Add the steam user (if necessary)
 The Reflex Arena server files will be installed in the "steam" user home directory, server instances will be launched as the steam user.
 
 Skip this part if you already have a steam user on your server.
