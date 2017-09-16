@@ -231,4 +231,4 @@ In order to apply the config change, you must restart the webserver !
 <br />
 <br />
 
-__Replays can now be found at the following url : http://yourserversip/replays/__
+__Replays from your server (All of your Reflex instances if more than 1) cnow be found at the following URL : http://yourserversip/replays/__
