@@ -31,7 +31,7 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 <br />
 <br />
 
-# Installation 1/2 (execute these commands as the root user !) :
+# Installation 1/2 (as the root user !) :
 ## Install dependencies
 ### system
 ```dpkg --add-architecture i386```
@@ -46,29 +46,20 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 
 ```apt-get update -y```
 
-<br />
-
 ### screen
 ```apt-get install -y screen```
 
-<br />
-
 ### winehq-staging
 ```apt-get install -y winehq-staging```
-
-<br />
 
 ### wine **(only do to change winehq-staging if necessary)**
 ```apt-get install -y wine```
 
 You can change version from winehq-staging to wine and vice-versa by using the regular install commands above, it will override the currently installed wine version.
 
-<br />
-
 ### Check currently installed wine version (optional, recommended)
 ```wine --version```
 
-<br />
 <br />
 
 ### Add the steam user (if necessary)
@@ -79,15 +70,10 @@ Skip this part if you already have a steam user on your server.
 ### Add the user
 ```useradd steam -m -r -s /bin/bash```
 
-<br />
-
 ### Change the steam password (optional, recommended)
 ```echo "steam:yoursteampassword" | chpasswd```
 
 (If you plan on logging as steam in a ssh session, don't forget to allow ssh password authentication for non root users in your ssh config file).
-
-<br />
-<br />
 
 ### Login as steam
 ```su steam``` and when logged in as steam : ```script /dev/null``` 
@@ -99,7 +85,7 @@ Or from another machine :
 <br />
 <br />
 
-# Installation 2/2 (execute these commands as the steam user !) :
+# Installation 2/2 (as the steam user !) :
 ## Install Server files
 ### Install steamcmd 
 ```cd ~ && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && tar -xf steamcmd_linux.tar.gz```
