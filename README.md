@@ -119,18 +119,6 @@ echo "steam:yoursteampassword" | chpasswd
 
 (If you plan on logging as steam in a ssh session, don't forget to allow ssh password authentication for non root users in your ssh config file).
 
-### Login as steam
-```
-su steam
-``` 
-And when logged in as steam : 
-```
-script /dev/null
-``` 
-
-Or from another machine :
-```ssh steam@your_server_ip``` (or use PuTTY)
-
 <br />
 <br />
 <br />
@@ -143,6 +131,10 @@ And
 ```
 script /dev/null
 ```
+Or from another machine :
+
+```ssh steam@your_server_ip``` (or use PuTTY)
+
 ## Install Server files
 ### Install steamcmd 
 ```
