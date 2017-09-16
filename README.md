@@ -243,7 +243,7 @@ If you don't want to manually delete replays when there's too many of them, you 
 ## Create the script
 ```su steam```
 
-```cd ~ && printf 'find /home/steam/reflex/ds_0.48.3/reflex_ds/replays/ -mindepth 1 -type f -mtime +60 -print0 | xargs -r0 rm -- –' >> replay_purge.sh && chmod +x replay_purge.sh```
+```cd ~ && printf 'find /home/steam/reflex/replays/ -mindepth 1 -type f -mtime +60 -print0 | xargs -r0 rm -- –' >> replay_purge.sh && chmod +x replay_purge.sh```
 
 The +number value in the script is the age threshold after which replay files will be deleted, 60 in the command above.
 
@@ -252,4 +252,4 @@ The +number value in the script is the age threshold after which replay files wi
 
 The script will executed once a day.
 
-__Files (Replays) from the /home/steam/reflex/replays directory will get deleted if they're older than 60 days.__
+__Files (Replays) from the /home/steam/reflex/replays/ directory will get deleted if they're older than 60 days.__
