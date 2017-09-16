@@ -30,6 +30,7 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 <br />
 
 # Installation 1/2 (as the root user !) :
+```su```
 ## Install dependencies
 ### system
 ```dpkg --add-architecture i386```
@@ -82,6 +83,7 @@ Or from another machine :
 <br />
 
 # Installation 2/2 (as the steam user !) :
+```su steam``` and ```script /dev/null```
 ## Install Server files
 ### Install steamcmd 
 ```cd ~ && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && tar -xf steamcmd_linux.tar.gz```
@@ -105,18 +107,18 @@ This file contains the server settings that will be applied when you launch the 
 
 I don't recommend modifying this file as it will be used for all your Reflex Arena server instances running on your server. (You can however duplicate it and have your custom settings there)
 
-It's best to leave this file untouched and apply changes through the start parameters after the launch command (eg : +sv_hostname m3fh4q's Reflex server)
+It's best to leave this file untouched and use start parameters after the launch command (eg : +sv_hostname m3fh4q's Reflex server)
 
 <br />
 <br />
 <br />
 
 # Managing the server(s) (as the steam user !)
+```su steam``` and ```script /dev/null```
 ## Operations
 The server(s) can be fully managed with the steam user, **log in as steam for this section**
 ### Create screen session(s)
-```screen -dmS reflex_server1```
-This will create a detached terminal called "reflex_server1"
+```screen -dmS reflex_server1``` will create a detached terminal called "reflex_server1"
 
 Each instance of a reflex server needs to be launched in a detached terminal using [screen](https://www.gnu.org/software/screen/manual/screen.html)
 
@@ -134,30 +136,42 @@ The most important command is sv_gameport , each server instance on your server 
 Create your own string of settings and save it somewhere or create a .cfg file in the /home/steam/reflex directory.
 
 ### Start the server
-```screen -S screen_session_name -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe launch_setting_string"```
+```screen -S screen_session_name -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe launch_setting_string
+"```
 
 Using the example in this guide :
 
-```screen -S reflex_server1 -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe +sv_hostname m3fh4q Reflex server +sv_steam 1 +sv_autorecord 1 sv_startruleset competitive +sv_starwmap 608558613 +rcon_password myrcon +sv_refpassword myrefpwd +sv_country FR +sv_maxclients 8 +sv_gameport 25787"```
+```screen -S reflex_server1 -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe +sv_hostname m3fh4q Reflex server +sv_steam 1 +sv_autorecord 1 sv_startruleset competitive +sv_starwmap 608558613 +rcon_password myrcon +sv_refpassword myrefpwd +sv_country FR +sv_maxclients 8 +sv_gameport 25787
+"```
 
 **Or (if you're using a seperate server cfg file)**
 
-```screen -S reflex_server1 -X stuff "loadconfig custom_server_cfg"```
+```screen -S reflex_server1 -X stuff "loadconfig custom_server_cfg
+"```
+
+#### wine version problem
+When you start the server, it may not work, this could be due to the current wine version not being compatible with the current Reflex build, in this case, **change from winhq-staging to wine or vice versa**, instructions in the Installation 1/2 section.
 
 ### Stop the server
-```screen -S screen_session_name -X stuff "quit"```
+```screen -S screen_session_name -X stuff "quit
+"```
 
 Using the example in this guide :
-```screen -S reflex_server1 -X stuff "quit"```
+```screen -S reflex_server1 -X stuff "quit
+"```
 
 ### Update the server(s)
 * Shutdown the Reflex instance(s) running on your server (Stop the server(s)) using the instructions above.
 
-* Run steamcmd again : ```cd ~ && ./steamcmd.sh +runscript reflex.txt```
+* Run steamcmd again : 
+
+```cd ~ && ./steamcmd.sh +runscript reflex.txt```
 
 ### Using the server console
 To use the server console, you need to enter the screen session associated with it
-```screen -r screen_session_name``` use Ctrl+A and Ctrl+D at the same time to detach from session 
+```screen -r screen_session_name``` 
+
+press Ctrl+A and Ctrl+D at the same time to detach from session 
 
 Using the example in this guide :
 ```screen -r reflex_server1```
