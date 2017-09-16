@@ -113,7 +113,7 @@ It's best to leave this file untouched and apply changes through the start param
 <br />
 <br />
 
-# Managing the server(s)
+# Managing the server(s) (as the steam user !)
 ## Operations
 The server(s) can be fully managed with the steam user, **log in as steam for this section**
 ### Create screen session(s)
@@ -131,35 +131,35 @@ Prepare a string of settings that will follow the launch command, use all the ne
 
 Exanple of a string of settings : 
 
->+sv_hostname m3fh4q's Reflex server +sv_steam 1 +sv_autorecord 1 sv_startruleset competitive +sv_starwmap 608558613 +rcon_password myrcon +sv_refpassword myrefpwd +sv_country FR +sv_maxclients 8 +sv_gameport 25787
+>+sv_hostname m3fh4q Reflex server +sv_steam 1 +sv_autorecord 1 sv_startruleset competitive +sv_starwmap 608558613 +rcon_password myrcon +sv_refpassword myrefpwd +sv_country FR +sv_maxclients 8 +sv_gameport 25787
 
 The most important command is sv_gameport , each server instance on your server needs to have a different one, sample : 25787 and 25788 if you have 2 servers.
 
 Create your own string of settings and save it somewhere or create a .cfg file in the /home/steam/reflex directory.
 
 ### Start the server
-```screen -S **screen_session_name** -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe **launch setting string**"```
+```screen -S screen_session_name -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe launch setting string"```
 
 Using the example in this guide :
-```screen -S reflex_server1 -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe +sv_hostname m3fh4q's Reflex server +sv_steam 1 +sv_autorecord 1 sv_startruleset competitive +sv_starwmap 608558613 +rcon_password myrcon +sv_refpassword myrefpwd +sv_country FR +sv_maxclients 8 +sv_gameport 25787"```
+```screen -S reflex_server1 -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe +sv_hostname m3fh4q Reflex server +sv_steam 1 +sv_autorecord 1 sv_startruleset competitive +sv_starwmap 608558613 +rcon_password myrcon +sv_refpassword myrefpwd +sv_country FR +sv_maxclients 8 +sv_gameport 25787"```
 
 **Or (if you're using a seperate server cfg file)**
 ```screen -S reflex_server1 -X stuff "loadconfig custom_server_cfg"```
 
 ### Stop the server
-```screen -S **screen_session_name** -X stuff "quit"```
+```screen -S screen_session_name -X stuff "quit"```
 
 Using the example in this guide :
 ```screen -S reflex_server1 -X stuff "quit"```
 
 ### Using the server console
 To use the server console, you need to enter the screen session associated with it
-```screen -r **screen_session_name**``` use Ctrl+A and Ctrl+D at the same time to detach from session 
+```screen -r screen_session_name``` use Ctrl+A and Ctrl+D at the same time to detach from session 
 
 Using the example in this guide :
-```screen -r **reflex_server1**```
+```screen -r reflex_server1```
 
 ### Update the server(s)
-* First, shutdown the Reflex instance(s) running on your server (Stop the server(s)) using the instructions above.
+* Shutdown the Reflex instance(s) running on your server (Stop the server(s)) using the instructions above.
 
-* run steamcmd again : ```./steamcmd.sh +runscript reflex.txt```
+* Run steamcmd again : ```./steamcmd.sh +runscript reflex.txt```
