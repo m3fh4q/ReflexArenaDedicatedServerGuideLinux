@@ -213,7 +213,7 @@ Example of a string of settings :
 
 >+sv_hostname m3fh4q Reflex server +sv_steam 1 +sv_autorecord 1 sv_startruleset competitive +sv_starwmap 608558613 +rcon_password myrcon +sv_refpassword myrefpwd +sv_country FR +sv_maxclients 8 +sv_gameport 25787
 
-The most important command is sv_gameport , each server instance on your server needs to have a different one, sample : 25787 and 25788 if you have 2 servers, 25789 afterwards etc...
+The most important command is sv_gameport , each Reflex Arena dedicated server instance on your server needs to have a different one, sample : 25787 and 25788 if you have 2 servers, 25789 afterwards etc...
 
 Create your own string of settings and save it somewhere or create a .cfg file in the /home/steam/reflex directory.
 
@@ -301,7 +301,7 @@ apt-get install -y apache2
 ## Apache 2 replays folder configuration
 * Open the config file : ```nano /etc/apache2/sites-enabled/000-default.conf```
 * (Ctrl-O to save, Ctrl-X to exit the editor)
-* Add the following paragraph within the <Virtual host> statement :
+* Add the following paragraph within the Virtual host declaration :
 ```
 	Alias /replays/ "/home/steam/reflex/replays/"
 	<Directory "/home/steam/reflex/replays/">
