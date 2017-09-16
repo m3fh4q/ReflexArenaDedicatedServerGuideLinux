@@ -21,7 +21,7 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 * [Known problem](#Problem)
 * [Installation 1/2 (as root)](#Installation1/2)
 * [Installation 2/2 (as steam)](#Installation2/2)
-* [Managing the server](#Managing)
+* [Managing the server(s)](#Managing)
 * [Serving replays using a webserver](#Serving)
 * [Auto replays purge script](#Purge)
 
