@@ -12,10 +12,15 @@ __[Steam store page](http://store.steampowered.com/app/328070/Reflex_Arena/) -
 
 This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) on linux using wine.
 
-Table of contents :
+# Table of contents :
 
-1. 	[Requirements](#Requirements)
-2. 	[Installation 1/2](#Installation1/2)
+* [Requirements](#Requirements)
+* [Known problem](#Problem)
+* [Installation 1/2, root](#Installation1/2)
+* [Installation 2/2, steam](#Installation2/2)
+* [Managing the server](#Managing)
+* [Serving replays using a webserver](#Serving)
+* [Auto replays purge script](#Purge)
 
 <br />
 <br />
@@ -26,7 +31,7 @@ Table of contents :
 * 1 CPU and 1GB of RAM available on your server.
 * I recommend using the $2.50 or $5 offer from [Vultr](https://www.vultr.com/pricing/) (not affiliated with them, it's just what I currently use)
 
-## Known problem : wine versions and Reflex Arena builds
+## Known problem : wine versions and Reflex Arena builds <a name="Problem"></a>
 * When starting the server, it'll refuse to load if you're using an incompatible wine version.
 * Depending on the Reflex Arena build you're using, either __winehq-staging__ or __wine__ will work.
 * Change from one to another if necessary (check the wine section below in the Installation 1/2).
@@ -124,7 +129,7 @@ Or from another machine :
 <br />
 <br />
 
-# Installation 2/2 (as the steam user) :
+# Installation 2/2 (as the steam user) : <a name="Installation2/2"></a>
 ```
 su steam
 ``` 
@@ -175,7 +180,7 @@ It's best to leave this file untouched and use start parameters after the launch
 <br />
 <br />
 
-# Managing the server(s) (as the steam user)
+# Managing the server(s) (as the steam user) <a name="Managing"></a>
 ```
 su steam
 ``` 
@@ -269,7 +274,7 @@ screen -r reflex_server1
 <br />
 <br />
 
-# Serving replays using a webserver (optional, recommended)
+# Serving replays using a webserver (optional, recommended) <a name="Serving"></a>
 Replays will be recorded as long as :
 * the /home/steam/reflex/replays/ folder is present and has rwx permission for the steam user.
 * server is running sv_autorecord 1
@@ -321,7 +326,7 @@ __Replays from your server (All of your Reflex instances if more than 1) cnow be
 <br />
 <br />
 
-# Auto replays purge script (optional, recommended)
+# Auto replays purge script (optional, recommended) <a name="Purge"></a>
 If you don't want to manually delete replays when there's too many of them, you can setup a script that will be run daily using cron. The following should be done as the steam user. 
 
 ## Create the script
