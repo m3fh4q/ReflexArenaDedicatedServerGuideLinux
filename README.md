@@ -252,4 +252,4 @@ The +number value in the script is the age threshold after which replay files wi
 
 The script will executed once a day.
 
-__Files (Replays) from the /home/steam/reflex/replays directory will get deleted if they're older than 60 days.
+__Files (Replays) from the /home/steam/reflex/replays directory will get deleted if they're older than 60 days.__
