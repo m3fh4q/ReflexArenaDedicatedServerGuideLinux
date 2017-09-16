@@ -52,7 +52,7 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 ### winehq-staging
 ```apt-get install -y winehq-staging```
 
-### wine __(only do to change winehq-staging if necessary)__
+### wine __(skip it, only do to change from winehq-staging if necessary)__
 ```apt-get install -y wine```
 
 You can change version from winehq-staging to wine and vice-versa by using the regular install commands above, it will override the currently installed wine version.
@@ -210,14 +210,14 @@ All the operations will be done as root, ```su``` if necessary.
 * (Ctrl-O to save, Ctrl-X to exit the editor)
 * Add the following paragraph within the <Virtual host> statement :
 ```
-Alias /replays/ "/home/steam/reflex/replays/"
-<Directory "/home/steam/reflex/replays/">
-Options Indexes FollowSymLinks
-AllowOverride None
-Order allow,deny 
-Allow from all
-Require all granted
-</Directory>
+	Alias /replays/ "/home/steam/reflex/replays/"
+	<Directory "/home/steam/reflex/replays/">
+	Options Indexes FollowSymLinks
+	AllowOverride None
+	Order allow,deny 
+	Allow from all
+	Require all granted
+	</Directory>
 ```
 
 * Your 000-default.conf file should look like something like [this](https://pastebin.com/5NYu3zRK)
