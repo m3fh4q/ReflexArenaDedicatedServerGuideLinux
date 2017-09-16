@@ -21,8 +21,9 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 * 1 CPU and 1GB of RAM available on your server.
 
 ## Known problem : wine versions and Reflex Arena builds
-* Depending on the latest Reflex Arena build and wine version at the time of using this guide, you may need to use a different version of wine.
-* Either **winehq-staging** or **wine**
+* When starting the server, it'll refuse to load if you're using an incompatible wine version.
+* Depending on the Reflex Arena build you're using, either **winehq-staging** or **wine** will work.
+* Change from one to another if necessary (check the wine section below in the Installation 1/2).
 * To check which version of wine you currently have installed use the following command : ```wine --version```
 
 <br />
@@ -131,7 +132,7 @@ Example of a string of settings :
 
 >+sv_hostname m3fh4q Reflex server +sv_steam 1 +sv_autorecord 1 sv_startruleset competitive +sv_starwmap 608558613 +rcon_password myrcon +sv_refpassword myrefpwd +sv_country FR +sv_maxclients 8 +sv_gameport 25787
 
-The most important command is sv_gameport , each server instance on your server needs to have a different one, sample : 25787 and 25788 if you have 2 servers.
+The most important command is sv_gameport , each server instance on your server needs to have a different one, sample : 25787 and 25788 if you have 2 servers, 25789 afterwards etc...
 
 Create your own string of settings and save it somewhere or create a .cfg file in the /home/steam/reflex directory.
 
@@ -186,3 +187,45 @@ press Ctrl+A and Ctrl+D at the same time to detach from session
 
 Using the example in this guide :
 ```screen -r reflex_server1```
+
+<br />
+<br />
+<br />
+
+# Serving replays using a webserver (optional, recommended)
+Replays will be recorded as long as :
+* the /home/steam/reflex/replays/ folder is present and has w permission for steam.
+* server is running sv_autorecord 1
+
+You can setup a web server easily serving the replays folder containing the replays.
+
+If apache2 is already installed and running, just do the configuration and restart part.
+
+All the operations will be done as root, ```su``` if necessary.
+
+##Apache 2 install
+```apt-get install -y apache2```
+
+##Apache 2 replays folder configuration
+* Open the config file : ```nano /etc/apache2/sites-enabled/000-default.conf```
+* (Ctrl-O to save, Ctrl-X to exit the editor)
+* Add the following paragraph within the <Virtual host> statement :
+```
+Alias /replays/ "/home/steam/reflex/replays/"
+<Directory "/home/steam/reflex/replays/">
+Options Indexes FollowSymLinks
+AllowOverride None
+Order allow,deny 
+Allow from all
+Require all granted
+</Directory>
+```
+
+* Your 000-default.conf file should look like something like [this](https://pastebin.com/5NYu3zRK)
+
+##Apache 2 restart
+In order to apply the config change, you must restart the webserver !
+
+```service apache2 restart```
+
+**Replays can now be found at the following url : http://yourserversip/replays/**
