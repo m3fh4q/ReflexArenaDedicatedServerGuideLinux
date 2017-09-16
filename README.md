@@ -14,13 +14,14 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 
 Table of contents :
 
-1. 	[Requirements](## Requirements)
+1. 	[Requirements](##Requirements)
+2. 	[Installation 1/2](##Installation1/2)
 
 <br />
 <br />
 
 
-## Requirements
+## Requirements <a name="Requirements"></a>
 * Debian 9
 * 1 CPU and 1GB of RAM available on your server.
 * I recommend using the $2.50 or $5 offer from [Vultr](https://www.vultr.com/pricing/) (not affiliated with them, it's just what I currently use)
@@ -38,7 +39,7 @@ wine --version
 <br />
 <br />
 
-# Installation 1/2 (as the root user) :
+# Installation 1/2 (as the root user) : <a name="Installation1/2"></a>
 ```
 su
 ```
