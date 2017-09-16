@@ -12,6 +12,8 @@ Reflex Arena is a competitive Arena FPS that combines modern tech with the speed
 <br />
 <br />
 
+This tutorial will guide you on how to host a Reflex Arena server on linux using wine.
+
 ### Requirements
 * Debian 9
 * 1 CPU and 1GB of RAM available on your server.
@@ -27,7 +29,7 @@ Reflex Arena is a competitive Arena FPS that combines modern tech with the speed
 <br />
 <br />
 
-## Installation 1/2 (as root) :
+## Installation 1/2 (execute these commands as the root user !) :
 ### Install dependencies
 #### system
 ```dpkg --add-architecture i386```
@@ -96,14 +98,14 @@ from another machine : ```ssh steam@your_serversip``` (or use PuTTY)
 <br />
 <br />
 
-## Installation 2/2 (as steam) :
+## Installation 2/2 (execute these commands as the steam user !) :
 ###  Install Server files
 #### Install steamcmd 
 ```cd ~ && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && tar -xf steamcmd_linux.tar.gz```
 
 <br />
 
-#### Create steamcmd script
+#### Create the steamcmd script to install Reflex Arena
 ```printf '@ShutdownOnFailedCommand 1\n@NoPromptForPassword 1\n@sSteamCmdForcePlatformType windows\nlogin anonymous\nforce_install_dir /home/steam/reflex\napp_update 329740 validate\nquit' > reflex.txt```
 
 <br />
@@ -117,3 +119,15 @@ from another machine : ```ssh steam@your_serversip``` (or use PuTTY)
 ```mkdir /home/steam/reflex/replays```
 
 <br />
+
+Your Reflex Arena server is now ready to be launched
+
+#### edit dedicatedserver.cfg (optional, not recommended)
+```nano /home/steam/reflex/dedicatedserver.cfg```  (ctrl-O to save, ctrl-X to exit the editor)
+
+This file contains the server settings that will be applied when you launch the server. I don't recommend changing the default ones as this file will be used for all your Reflex Arena server instances running on your server.
+
+It's best to leave this file untouched and apply changes through the start parameters after the launch command (eg : +hostname John's Reflex server)
+
+## Launching the server(s)
+### Create screen session(s)
