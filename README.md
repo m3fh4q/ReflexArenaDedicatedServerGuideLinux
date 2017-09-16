@@ -19,6 +19,7 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 ## Requirements
 * Debian 9
 * 1 CPU and 1GB of RAM available on your server.
+* I recommend using the $2.50 or 5$ from [vultr](https://www.vultr.com/pricing/) (not affiliated with them, it's just what I currently use)
 
 ## Known problem : wine versions and Reflex Arena builds
 * When starting the server, it'll refuse to load if you're using an incompatible wine version.
@@ -193,7 +194,7 @@ Using the example in this guide :
 
 # Serving replays using a webserver (optional, recommended)
 Replays will be recorded as long as :
-* the /home/steam/reflex/replays/ folder is present and has w permission for steam.
+* the /home/steam/reflex/replays/ folder is present and has rwx permission for the steam user.
 * server is running sv_autorecord 1
 
 You can setup a web server easily serving the replays folder containing the replays.
