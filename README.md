@@ -136,29 +136,35 @@ The most important command is sv_gameport , each server instance on your server 
 Create your own string of settings and save it somewhere or create a .cfg file in the /home/steam/reflex directory.
 
 ### Start the server
-```screen -S screen_session_name -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe launch_setting_string
-"```
+```
+screen -S screen_session_name -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe launch_setting_string
+"
+```
 
 Using the example in this guide :
 
 ```screen -S reflex_server1 -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe +sv_hostname m3fh4q Reflex server +sv_steam 1 +sv_autorecord 1 sv_startruleset competitive +sv_starwmap 608558613 +rcon_password myrcon +sv_refpassword myrefpwd +sv_country FR +sv_maxclients 8 +sv_gameport 25787
-"```
+"
+```
 
 **Or (if you're using a seperate server cfg file)**
 
 ```screen -S reflex_server1 -X stuff "loadconfig custom_server_cfg
-"```
+"
+```
 
 #### wine version problem
 When you start the server, it may not work, this could be due to the current wine version not being compatible with the current Reflex build, in this case, **change from winhq-staging to wine or vice versa**, instructions in the Installation 1/2 section.
 
 ### Stop the server
 ```screen -S screen_session_name -X stuff "quit
-"```
+"
+```
 
 Using the example in this guide :
 ```screen -S reflex_server1 -X stuff "quit
-"```
+"
+```
 
 ### Update the server(s)
 * Shutdown the Reflex instance(s) running on your server (Stop the server(s)) using the instructions above.
