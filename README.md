@@ -112,7 +112,7 @@ Skip this part if you already have a steam user on your server.
 useradd steam -m -r -s /bin/bash
 ```
 
-### Change the steam password (optional, recommended)
+### Change the steam user password (optional, recommended)
 ```
 echo "steam:yoursteampassword" | chpasswd
 ```
