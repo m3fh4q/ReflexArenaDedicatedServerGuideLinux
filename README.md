@@ -9,10 +9,12 @@ Reflex Arena is a competitive Arena FPS that combines modern tech with the speed
 
 <br />
 <br />
+
+This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) on linux using wine.
+
 <br />
 <br />
 
-This tutorial will guide you on how to host a Reflex Arena server on linux using wine.
 
 ### Requirements
 * Debian 9
@@ -90,9 +92,8 @@ Skip this part if you already have a steam user on your server.
 ### Login as steam
 ```su steam``` and when logged in as steam : ```script /dev/null``` 
 
-**OR**
-
-from another machine : ```ssh steam@your_serversip``` (or use PuTTY)
+Or from another machine :
+```ssh steam@your_server_ip``` (or use PuTTY)
 
 <br />
 <br />
@@ -110,7 +111,7 @@ from another machine : ```ssh steam@your_serversip``` (or use PuTTY)
 
 <br />
 
-#### Run steamcmd and use the script (this will install Reflex Arena files)
+#### Run steamcmd and run the script (this will install Reflex Arena files)
 ```./steamcmd.sh +runscript reflex.txt```
 
 <br />
@@ -123,11 +124,75 @@ from another machine : ```ssh steam@your_serversip``` (or use PuTTY)
 Your Reflex Arena server is now ready to be launched
 
 #### edit dedicatedserver.cfg (optional, not recommended)
-```nano /home/steam/reflex/dedicatedserver.cfg```  (ctrl-O to save, ctrl-X to exit the editor)
+```nano /home/steam/reflex/dedicatedserver.cfg```  (Ctrl-O to save, Ctrl-X to exit the editor)
 
-This file contains the server settings that will be applied when you launch the server. I don't recommend changing the default ones as this file will be used for all your Reflex Arena server instances running on your server.
+This file contains the server settings that will be applied when you launch the server. I recommend reading the file, it countains comments at each setting detailing what it does.
+```more /home/steam/reflex/dedicatedserver.cfg```
 
-It's best to leave this file untouched and apply changes through the start parameters after the launch command (eg : +hostname John's Reflex server)
+I don't recommend modifying this filet ones as it will be used for all your Reflex Arena server instances running on your server. (You can however duplicate it and have your custom settings there)
 
-## Launching the server(s)
+It's best to leave this file untouched and apply changes through the start parameters after the launch command (eg : +sv_hostname m3fh4q's Reflex server)
+
+<br />
+<br />
+<br />
+
+## Managing the server(s)
+The server(s) can be fully managed with the steam user, **log in as steam for this section**
 ### Create screen session(s)
+```screen -dmS reflex_server1```
+This will create a detached terminal called "reflex_server1"
+
+Each instance of a reflex server needs to be launched in a detached terminal using [screen](https://www.gnu.org/software/screen/manual/screen.html)
+
+<br />
+
+### Prepare your server launch settings string
+Prepare a string of settings that will follow the launch command, use all the necessary sv_commands (can be found in dedicatedserver.cfg)
+
+Exanple of a string of settings : 
+
+>+sv_hostname m3fh4q's Reflex server +sv_steam 1 +sv_autorecord 1 sv_startruleset competitive +sv_starwmap 608558613 +rcon_password myrcon +sv_refpassword myrefpwd +sv_country FR +sv_gameport 25787
+
+The most important command is sv_gameport , each server instance on your server needs to have a different one, sample : 25787 and 25788 if you have 2 servers.
+
+Create your own string of settings and save it somewhere or create a .cfg file in the /home/steam/reflex directory.
+
+<br />
+<br />
+
+### Start the server
+```screen -S **screen_session_name** -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe **launch setting string**"```
+
+Using the example in this guide :
+```screen -S reflex_server1 -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe +sv_hostname m3fh4q's Reflex server +sv_steam 1 +sv_autorecord 1 sv_startruleset competitive +sv_starwmap 608558613 +rcon_password myrcon +sv_refpassword myrefpwd +sv_country FR +sv_gameport 25787"```
+
+**Or (if you're using a seperate server cfg file)**
+```screen -S reflex_server1 -X stuff "loadconfig custom_server_cfg"```
+
+<br />
+<br />
+
+### Stop the server
+```screen -S **screen_session_name** -X stuff "quit"```
+
+Using the example in this guide :
+```screen -S reflex_server1 -X stuff "quit"```
+
+<br />
+<br />
+
+### Using the server console
+To use the server console, you need to enter the screen session associated with it
+```screen -r **screen_session_name**``` use Ctrl+A and Ctrl+D at the same time to detach from session 
+
+Using the example in this guide :
+```screen -r **reflex_server1**```
+
+<br />
+<br />
+
+# Update the server(s)
+* First, shutdown the Reflex instance(s) running on your server (Stop the server(s)) using the instructions above.
+
+* run steamcmd again : ```./steamcmd.sh +runscript reflex.txt```
