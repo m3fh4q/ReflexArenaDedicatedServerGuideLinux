@@ -34,7 +34,7 @@ wine --version
 <br />
 <br />
 
-# Installation 1/2 (as the root user !) :
+# Installation 1/2 (as the root user) :
 ```
 su
 ```
@@ -119,7 +119,7 @@ Or from another machine :
 <br />
 <br />
 
-# Installation 2/2 (as the steam user !) :
+# Installation 2/2 (as the steam user) :
 ```su steam``` and ```script /dev/null```
 ## Install Server files
 ### Install steamcmd 
@@ -164,7 +164,7 @@ It's best to leave this file untouched and use start parameters after the launch
 <br />
 <br />
 
-# Managing the server(s) (as the steam user !)
+# Managing the server(s) (as the steam user)
 ```
 su steam
 ``` 
