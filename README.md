@@ -1,5 +1,5 @@
 # Reflex Arena Dedicated Server Guide Linux
-Reflex is a competitive Arena FPS that combines modern tech with the speed, precision and freedom of a 90s shooter.
+Reflex Arena is a competitive Arena FPS that combines modern tech with the speed, precision and freedom of a 90s shooter.
 
 **[Steam store page](http://store.steampowered.com/app/328070/Reflex_Arena/) - 
 [Official website](https://www.reflexarena.com/) - 
@@ -97,3 +97,23 @@ from another machine : ```ssh steam@your_serversip``` (or use PuTTY)
 <br />
 
 ## Installation 2/2 (as steam) :
+###  Install Server files
+#### Install steamcmd 
+```cd ~ && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && tar -xf steamcmd_linux.tar.gz```
+
+<br />
+
+#### Create steamcmd script
+```printf '@ShutdownOnFailedCommand 1\n@NoPromptForPassword 1\n@sSteamCmdForcePlatformType windows\nlogin anonymous\nforce_install_dir /home/steam/reflex\napp_update 329740 validate\nquit' > reflex.txt```
+
+<br />
+
+#### Run steamcmd and use the script (this will install Reflex Arena files)
+```./steamcmd.sh +runscript reflex.txt```
+
+<br />
+
+#### Create the replays directory
+```mkdir /home/steam/reflex/replays```
+
+<br />
