@@ -104,7 +104,13 @@ echo "steam:yoursteampassword" | chpasswd
 (If you plan on logging as steam in a ssh session, don't forget to allow ssh password authentication for non root users in your ssh config file).
 
 ### Login as steam
-```su steam``` and when logged in as steam : ```script /dev/null``` 
+```
+su steam
+``` 
+And when logged in as steam : 
+```
+script /dev/null
+``` 
 
 Or from another machine :
 ```ssh steam@your_server_ip``` (or use PuTTY)
@@ -159,7 +165,13 @@ It's best to leave this file untouched and use start parameters after the launch
 <br />
 
 # Managing the server(s) (as the steam user !)
-```su steam``` and ```script /dev/null```
+```
+su steam
+``` 
+And
+```
+script /dev/null
+```
 ## Operations
 The server(s) can be fully managed with the steam user, __log in as steam for this section__
 ### Create screen session(s)
