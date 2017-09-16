@@ -294,12 +294,12 @@ All the operations will be done as root.
 su
 ``` 
 
-## Apache 2 install
+### Install apache2
 ```
 apt-get install -y apache2
 ```
 
-## Apache 2 replays folder configuration
+### Configure apache2 config file for replays folder
 * Open the config file : ```nano /etc/apache2/sites-enabled/000-default.conf```
 * (Ctrl-O to save, Ctrl-X to exit the editor)
 * Add the following paragraph within the Virtual host declaration :
@@ -316,7 +316,7 @@ apt-get install -y apache2
 
 * Your 000-default.conf file should look like something like [this](https://pastebin.com/5NYu3zRK)
 
-## Apache 2 restart
+### restart apache2
 In order to apply the config change, you must restart the webserver !
 
 ```
@@ -335,7 +335,7 @@ __Replays from your server (all of your Reflex Arena dedicated server instances)
 # Auto replays purge script (optional, recommended) <a name="Purge"></a>
 If you don't want to manually delete replays when there's too many of them, you can setup a script that will be run daily using cron. The following should be done as the steam user. 
 
-## Create the script
+### Create the script
 ```
 su steam
 ```
@@ -346,7 +346,7 @@ cd ~ && printf 'find /home/steam/reflex/replays/ -mindepth 1 -type f -mtime +60 
 
 The +number value in the script is the age threshold after which replay files will be deleted, 60 in the command above.
 
-## Add the script to cron
+### Add the script to cron
 ```
 (crontab -l ; echo "* * */1 * * /home/steam/replay_purge.sh") | crontab - -
 ``` 
