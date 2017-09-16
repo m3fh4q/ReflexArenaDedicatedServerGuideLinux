@@ -25,41 +25,66 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 * When starting the server, it'll refuse to load if you're using an incompatible wine version.
 * Depending on the Reflex Arena build you're using, either __winehq-staging__ or __wine__ will work.
 * Change from one to another if necessary (check the wine section below in the Installation 1/2).
-* To check which version of wine you currently have installed use the following command : ```wine --version```
+* To check which version of wine you currently have installed use the following command : 
+```
+wine --version
+```
 
 <br />
 <br />
 <br />
 
 # Installation 1/2 (as the root user !) :
-```su```
+```
+su
+```
 ## Install dependencies
 ### system
-```dpkg --add-architecture i386```
+```
+dpkg --add-architecture i386
+```
 
-```apt-get install -y apt-transport-https```
+```
+apt-get install -y apt-transport-https
+```
 
-```wget -nc https://repos.wine-staging.com/wine/Release.key```
+```
+wget -nc https://repos.wine-staging.com/wine/Release.key
+```
 
-```apt-key add Release.key```
+```
+apt-key add Release.key
+```
 
-```echo deb https://dl.winehq.org/wine-builds/debian/ stretch main >> /etc/apt/sources.list```
+```
+echo deb https://dl.winehq.org/wine-builds/debian/ stretch main >> /etc/apt/sources.list
+```
 
-```apt-get update -y```
+```
+apt-get update -y
+```
 
 ### screen
-```apt-get install -y screen```
+```
+apt-get install -y screen
+```
 
 ### winehq-staging
-```apt-get install -y winehq-staging```
+```
+apt-get install -y winehq-staging
+```
 
 ### wine __(skip it, only do to change from winehq-staging if necessary)__
-```apt-get install -y wine```
+```
+apt-get install -y wine
+```
 
 You can change version from winehq-staging to wine and vice-versa by using the regular install commands above, it will override the currently installed wine version.
 
 ### Check currently installed wine version (optional, recommended)
-```wine --version```
+```
+wine --version
+```
 
 ### Add the steam user (if necessary)
 The Reflex Arena server files will be installed in the "steam" user home directory, server instances will be launched as the steam user.
@@ -67,10 +92,14 @@ The Reflex Arena server files will be installed in the "steam" user home directo
 Skip this part if you already have a steam user on your server.
 
 ### Add the user
-```useradd steam -m -r -s /bin/bash```
+```
+useradd steam -m -r -s /bin/bash
+```
 
 ### Change the steam password (optional, recommended)
-```echo "steam:yoursteampassword" | chpasswd```
+```
+echo "steam:yoursteampassword" | chpasswd
+```
 
 (If you plan on logging as steam in a ssh session, don't forget to allow ssh password authentication for non root users in your ssh config file).
 
@@ -88,24 +117,38 @@ Or from another machine :
 ```su steam``` and ```script /dev/null```
 ## Install Server files
 ### Install steamcmd 
-```cd ~ && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && tar -xf steamcmd_linux.tar.gz```
+```
+cd ~ && wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && tar -xf steamcmd_linux.tar.gz
+```
 
 ### Create the steamcmd script to install Reflex Arena
-```printf '@ShutdownOnFailedCommand 1\n@NoPromptForPassword 1\n@sSteamCmdForcePlatformType windows\nlogin anonymous\nforce_install_dir /home/steam/reflex\napp_update 329740 validate\nquit' > reflex.txt```
+```
+printf '@ShutdownOnFailedCommand 1\n@NoPromptForPassword 1\n@sSteamCmdForcePlatformType windows\nlogin anonymous\nforce_install_dir /home/steam/reflex\napp_update 329740 validate\nquit' > reflex.txt
+```
 
 ### Run steamcmd and run the script (this will install Reflex Arena files)
-```./steamcmd.sh +runscript reflex.txt```
+```
+./steamcmd.sh +runscript reflex.txt
+```
 
 ### Create the replays directory
-```mkdir /home/steam/reflex/replays```
+```
+mkdir /home/steam/reflex/replays
+```
 
 Your Reflex Arena server is now installed and ready to be launched.
 
 ### edit dedicatedserver.cfg (optional, not recommended)
-```nano /home/steam/reflex/dedicatedserver.cfg```  (Ctrl-O to save, Ctrl-X to exit the editor)
+```
+nano /home/steam/reflex/dedicatedserver.cfg
+```  
+
+(Ctrl-O to save, Ctrl-X to exit the editor)
 
 This file contains the server settings that will be applied when you launch the server. I recommend reading the file, it countains comments at each setting detailing what it does.
-```more /home/steam/reflex/dedicatedserver.cfg```
+```
+more /home/steam/reflex/dedicatedserver.cfg
+```
 
 I don't recommend modifying this file as it will be used for all your Reflex Arena server instances running on your server. (You can however duplicate it and have your custom settings there)
 
@@ -120,7 +163,11 @@ It's best to leave this file untouched and use start parameters after the launch
 ## Operations
 The server(s) can be fully managed with the steam user, __log in as steam for this section__
 ### Create screen session(s)
-```screen -dmS reflex_server1``` will create a detached terminal called "reflex_server1"
+```
+screen -dmS reflex_server1
+``` 
+
+This will create a detached terminal called "reflex_server1"
 
 Each instance of a reflex server needs to be launched in a detached terminal using [screen](https://www.gnu.org/software/screen/manual/screen.html)
 
@@ -177,16 +224,23 @@ screen -S reflex_server1 -X stuff "quit
 ### Update the server(s)
 * Shutdown the Reflex instance(s) running on your server (Stop the server(s)) using the instructions above.
 
-* Run steamcmd again :  ```cd ~ && ./steamcmd.sh +runscript reflex.txt```
+* Run steamcmd again :  
+```
+cd ~ && ./steamcmd.sh +runscript reflex.txt
+```
 
 ### Using the server console
 To use the server console, you need to enter the screen session associated with it : 
-```screen -r screen_session_name``` 
+```
+screen -r screen_session_name
+``` 
 
 Press Ctrl+A and Ctrl+D at the same time to detach from session 
 
 Using the example in this guide :
-```screen -r reflex_server1```
+```
+screen -r reflex_server1
+```
 
 <br />
 <br />
@@ -204,7 +258,9 @@ If apache2 is already installed and running, just do the configuration and resta
 All the operations will be done as root, ```su``` if necessary.
 
 ## Apache 2 install
-```apt-get install -y apache2```
+```
+apt-get install -y apache2
+```
 
 ## Apache 2 replays folder configuration
 * Open the config file : ```nano /etc/apache2/sites-enabled/000-default.conf```
@@ -226,7 +282,9 @@ All the operations will be done as root, ```su``` if necessary.
 ## Apache 2 restart
 In order to apply the config change, you must restart the webserver !
 
-```service apache2 restart```
+```
+service apache2 restart
+```
 
 <br />
 <br />
@@ -241,7 +299,9 @@ __Replays from your server (All of your Reflex instances if more than 1) cnow be
 If you don't want to manually delete replays when there's too many of them, you can setup a script that will be run daily using cron. The following should be done as the steam user. 
 
 ## Create the script
-```su steam```
+```
+su steam
+```
 
 ```
 cd ~ && printf 'find /home/steam/reflex/replays/ -mindepth 1 -type f -mtime +60 -print0 | xargs -r0 rm -- –' >> replay_purge.sh && chmod +x replay_purge.sh
@@ -250,7 +310,9 @@ cd ~ && printf 'find /home/steam/reflex/replays/ -mindepth 1 -type f -mtime +60 
 The +number value in the script is the age threshold after which replay files will be deleted, 60 in the command above.
 
 ## Add the script to cron job
-```(crontab -l ; echo "* * */1 * * /home/steam/replay_purge.sh") | crontab - -``` 
+```
+(crontab -l ; echo "* * */1 * * /home/steam/replay_purge.sh") | crontab - -
+``` 
 
 The script will executed once a day.
 
