@@ -156,6 +156,7 @@ screen -S reflex_server1 -X stuff "loadconfig custom_server_cfg
 ```
 
 #### wine version problem
+
 When you start the server, it may not work, this could be due to the current wine version not being compatible with the current Reflex build, in this case, **change from winhq-staging to wine or vice versa**, instructions in the Installation 1/2 section.
 
 ### Stop the server
@@ -178,7 +179,7 @@ screen -S reflex_server1 -X stuff "quit
 ```cd ~ && ./steamcmd.sh +runscript reflex.txt```
 
 ### Using the server console
-To use the server console, you need to enter the screen session associated with it
+To use the server console, you need to enter the screen session associated with it : 
 ```screen -r screen_session_name``` 
 
 press Ctrl+A and Ctrl+D at the same time to detach from session 
