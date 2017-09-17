@@ -201,12 +201,8 @@ Create your own string of settings and save it somewhere or create a .cfg file i
 
 ### Start the server(s)
 The line break with " is important !
-```
-screen -S screen_session_name -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe launch_setting_string
-"
-```
 
-Using the example in this guide :
+Using the example in this guide (replace with your own settings string afer reflexded.exe) :
 
 ```
 screen -S reflex_server1 -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe +sv_hostname m3fh4q Reflex server +sv_steam 1 +sv_autorecord 1 sv_startruleset competitive +sv_starwmap 608558613 +rcon_password myrcon +sv_refpassword myrefpwd +sv_country FR +sv_maxclients 8 +sv_gameport 25787
@@ -225,10 +221,6 @@ screen -S reflex_server1 -X stuff "loadconfig custom_server_cfg
 When you start the server, it may not work, this could be due to the current wine version not being compatible with the current Reflex build, in this case, __change from winhq-staging to wine or vice versa__, instructions in the Installation 1/2 section.
 
 ### Shutdown the server(s)
-```
-screen -S screen_session_name -X stuff "quit
-"
-```
 
 Using the example in this guide :
 ```
@@ -236,11 +228,14 @@ screen -S reflex_server1 -X stuff "quit
 "
 ```
 
-### Using the server console
-To use the server console, you need to enter the screen session associated with it : 
+Generic :
 ```
-screen -r screen_session_name
-``` 
+screen -S screen_session_name -X stuff "quit
+"
+```
+
+### Using the server console
+To use the server console, you need to enter the screen session associated with it.
 
 Press Ctrl+A and Ctrl+D at the same time to detach from session 
 
@@ -248,6 +243,11 @@ Using the example in this guide :
 ```
 screen -r reflex_server1
 ```
+
+Generic :
+```
+screen -r screen_session_name
+``` 
 
 ### Update the server(s)
 * Shutdown the Reflex Arena dedicated server instance(s) running on your server (Stop the server(s)) using the instructions above.
