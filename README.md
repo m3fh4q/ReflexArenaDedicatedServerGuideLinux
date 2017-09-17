@@ -12,7 +12,7 @@ __[Steam store page](http://store.steampowered.com/app/328070/Reflex_Arena/) -
 <br />
 <br />
 
-This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) on linux using wine.
+This tutorial will guide you on how to host a/multiple Reflex Arena dedicated servers(s) on linux using wine.
 
 ## Table of contents :
 
@@ -78,7 +78,6 @@ You can change version from winehq-staging to wine and vice-versa by using the r
 ```
 wine --version
 ```
-<br />
 
 ## Add the steam user (if necessary)
 The Reflex Arena server files will be installed in the "steam" user home directory, server instances will be launched as the steam user.
