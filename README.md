@@ -274,7 +274,7 @@ screen -r reflex_server1
 
 # <a name="Serving"></a>Serving replays using a webserver (optional, recommended)
 Replays will be recorded as long as :
-* the /home/steam/reflex/replays/ folder is present and has rwx permission for the steam user.
+* the /home/steam/reflex/replays/ folder is present and has rwx permissions for the steam user.
 * server is running sv_autorecord 1
 
 You can setup a web server easily serving the replays folder containing the replays.
