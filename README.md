@@ -108,7 +108,7 @@ And
 ```
 script /dev/null
 ```
-Or from another machine :
+__Or__ from another machine :
 
 ```ssh steam@your_server_ip``` (or use PuTTY)
 
@@ -142,7 +142,7 @@ nano /home/steam/reflex/dedicatedserver.cfg
 
 (Ctrl-O to save, Ctrl-X to exit the editor)
 
-This file contains the server settings that will be applied when you launch the server. I recommend reading the file, it countains comments at each setting detailing what it does.
+This file contains the server settings that will be applied when you launch the server. I recommend reading the file, it contains comments at each setting detailing what it does.
 ```
 more /home/steam/reflex/dedicatedserver.cfg
 ```
@@ -158,7 +158,7 @@ It's best to leave this file untouched and use start parameters after the launch
 Your Reflex Arena server files are now installed, server instance(s) can be launched !
 
 # <a name="Managing"></a>Managing the server(s)
-The server(s) will be fully managed with the steam user, __log in as steam for this section__
+The server(s) will be fully managed with the steam user, __log in as steam for this section.__
 ```
 su steam
 ``` 
@@ -167,13 +167,6 @@ And
 script /dev/null
 ```
 ## Operations
-### Connect to the server(s)
-You can connect to your server using the following command (in your Reflex console)
-
-```
-connect yourserverip:port_of_the_instance
-``` 
-
 ### Create screen session(s)
 ```
 screen -dmS reflex_server1
@@ -183,7 +176,7 @@ This will create a detached terminal called "reflex_server1"
 
 Each instance of a Reflex dedicated server needs to be launched in a detached terminal using [screen](https://www.gnu.org/software/screen/manual/screen.html), if you launch a server from your current session, it will shutdown when you exit it.
 
-Open as many screen sessions as Reflex Arena dedicated server instances you intend to host on this server, a 1 CPU and 1GB of RAM server can usually handle 2 Reflex server instances with sv_maxclients 8.
+Open as many screen sessions as Reflex Arena dedicated server instances you intend to host on your server, a 1 CPU and 1GB of RAM server can usually handle 2 Reflex server instances with sv_maxclients 8.
 
 ### Prepare your server(s) launch settings string
 Prepare a string of settings that will follow the launch command, use all the necessary sv_ commands (can be found in dedicatedserver.cfg)
@@ -240,8 +233,6 @@ screen -S screen_session_name -X stuff "quit
 ### Using the server console
 To use the server console, you need to enter the screen session associated with it.
 
-Press Ctrl+A and Ctrl+D at the same time to detach from session 
-
 Using the example in this guide :
 ```
 screen -r reflex_server1
@@ -252,6 +243,8 @@ Generic :
 screen -r screen_session_name
 ``` 
 
+Press Ctrl+A and Ctrl+D at the same time to detach from session 
+
 ### Update the server(s)
 * Shutdown the Reflex Arena dedicated server instance(s) running on your server (Stop the server(s)) using the instructions above.
 
@@ -259,6 +252,12 @@ screen -r screen_session_name
 ```
 cd ~ && ./steamcmd.sh +runscript reflex.txt
 ```
+
+### Connect to the server(s)
+You can connect to your server using the following command (in your Reflex console)
+```
+connect yourserverip:port_of_the_instance
+``` 
 
 <br />
 <br />
