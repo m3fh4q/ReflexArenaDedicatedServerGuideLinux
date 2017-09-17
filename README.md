@@ -206,6 +206,12 @@ screen -S reflex_server1 -X stuff "cd /home/steam/reflex/ && wineconsole reflexd
 "
 ```
 
+Generic :
+```
+screen -S screen_session_name -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe
+"
+```
+
 __Or (if you're using a seperate custom server cfg file)__
 
 ```
