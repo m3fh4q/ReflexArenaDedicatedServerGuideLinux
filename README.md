@@ -56,27 +56,7 @@ su
 ## Install dependencies
 ### system
 ```
-dpkg --add-architecture i386
-```
-
-```
-apt-get install -y apt-transport-https
-```
-
-```
-wget -nc https://repos.wine-staging.com/wine/Release.key
-```
-
-```
-apt-key add Release.key
-```
-
-```
-echo deb https://dl.winehq.org/wine-builds/debian/ stretch main >> /etc/apt/sources.list
-```
-
-```
-apt-get update -y
+dpkg --add-architecture i386 && apt-get install -y apt-transport-https && wget -nc https://repos.wine-staging.com/wine/Release.key && apt-key add Release.key && echo deb https://dl.winehq.org/wine-builds/debian/ stretch main >> /etc/apt/sources.list && apt-get update -y
 ```
 
 ### screen
@@ -156,7 +136,7 @@ printf '@ShutdownOnFailedCommand 1\n@NoPromptForPassword 1\n@sSteamCmdForcePlatf
 mkdir /home/steam/reflex/replays
 ```
 
-Your Reflex Arena server is now installed and ready to be launched.
+
 
 ### Edit dedicatedserver.cfg (optional, not recommended)
 ```
@@ -172,11 +152,13 @@ more /home/steam/reflex/dedicatedserver.cfg
 
 I don't recommend modifying this file as it will be used for all your Reflex Arena server instances running on your server. (You can however duplicate it and have your custom settings there)
 
-It's best to leave this file untouched and use start parameters after the launch command (eg : +sv_hostname m3fh4q's Reflex server)
+It's best to leave this file untouched and use start parameters after the launch command (eg : +sv_hostname m3fh4q Reflex server)
 
 <br />
 <br />
 <br />
+
+Your Reflex Arena server files are now installed, server instance(s) can be launched !
 
 # <a name="Managing"></a>Managing the server(s)
 The server(s) will be fully managed with the steam user, __log in as steam for this section__
@@ -188,6 +170,13 @@ And
 script /dev/null
 ```
 ## Operations
+### Connect to the server(s)
+You can connect to your server using the following command (in your Reflex console)
+
+```
+connect yourserverip:port_of_the_instance
+``` 
+
 ### Create screen session(s)
 ```
 screen -dmS reflex_server1
@@ -195,9 +184,9 @@ screen -dmS reflex_server1
 
 This will create a detached terminal called "reflex_server1"
 
-Each instance of a reflex server needs to be launched in a detached terminal using [screen](https://www.gnu.org/software/screen/manual/screen.html)
+Each instance of a Reflex dedicated server needs to be launched in a detached terminal using [screen](https://www.gnu.org/software/screen/manual/screen.html), if you launch a server from your current session, it will shutdown when you exit it.
 
-Open as many screen sessions as Reflex Arena dedicated server instances you intend to open, a 1 CPU and 1GB of RAM server can usually handle 2 Reflex server instances with sv_maxclients 8.
+Open as many screen sessions as Reflex Arena dedicated server instances you intend to host on this server, a 1 CPU and 1GB of RAM server can usually handle 2 Reflex server instances with sv_maxclients 8.
 
 ### Prepare your server(s) launch settings string
 Prepare a string of settings that will follow the launch command, use all the necessary sv_ commands (can be found in dedicatedserver.cfg)
@@ -210,7 +199,7 @@ The most important command is sv_gameport , each Reflex Arena dedicated server i
 
 Create your own string of settings and save it somewhere or create a .cfg file in the /home/steam/reflex directory.
 
-### Start the server
+### Start the server(s)
 The line break with " is important !
 ```
 screen -S screen_session_name -X stuff "cd /home/steam/reflex/ && wineconsole reflexded.exe launch_setting_string
@@ -224,7 +213,7 @@ screen -S reflex_server1 -X stuff "cd /home/steam/reflex/ && wineconsole reflexd
 "
 ```
 
-__Or (if you're using a seperate server cfg file)__
+__Or (if you're using a seperate custom server cfg file)__
 
 ```
 screen -S reflex_server1 -X stuff "loadconfig custom_server_cfg
@@ -235,7 +224,7 @@ screen -S reflex_server1 -X stuff "loadconfig custom_server_cfg
 
 When you start the server, it may not work, this could be due to the current wine version not being compatible with the current Reflex build, in this case, __change from winhq-staging to wine or vice versa__, instructions in the Installation 1/2 section.
 
-### Stop the server
+### Shutdown the server(s)
 ```
 screen -S screen_session_name -X stuff "quit
 "
@@ -248,7 +237,7 @@ screen -S reflex_server1 -X stuff "quit
 ```
 
 ### Update the server(s)
-* Shutdown the Reflex instance(s) running on your server (Stop the server(s)) using the instructions above.
+* Shutdown the Reflex Arena dedicated server instance(s) running on your server (Stop the server(s)) using the instructions above.
 
 * Run steamcmd again :  
 ```
