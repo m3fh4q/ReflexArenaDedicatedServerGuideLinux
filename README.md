@@ -12,7 +12,6 @@ __[Steam store page](http://store.steampowered.com/app/328070/Reflex_Arena/) -
 <br />
 <br />
 
-
 This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) on linux using wine.
 
 ## Table of contents :
@@ -29,7 +28,6 @@ This tutorial will guide you on how to host a/multiple Reflex Arena servers(s) o
 <br />
 <br />
 <br />
-
 
 ## <a name="Requirements"></a>Requirements
 * Debian 9
