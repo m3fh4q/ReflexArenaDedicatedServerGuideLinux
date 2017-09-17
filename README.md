@@ -236,14 +236,6 @@ screen -S reflex_server1 -X stuff "quit
 "
 ```
 
-### Update the server(s)
-* Shutdown the Reflex Arena dedicated server instance(s) running on your server (Stop the server(s)) using the instructions above.
-
-* Run steamcmd again :  
-```
-cd ~ && ./steamcmd.sh +runscript reflex.txt
-```
-
 ### Using the server console
 To use the server console, you need to enter the screen session associated with it : 
 ```
@@ -255,6 +247,14 @@ Press Ctrl+A and Ctrl+D at the same time to detach from session
 Using the example in this guide :
 ```
 screen -r reflex_server1
+```
+
+### Update the server(s)
+* Shutdown the Reflex Arena dedicated server instance(s) running on your server (Stop the server(s)) using the instructions above.
+
+* Run steamcmd again :  
+```
+cd ~ && ./steamcmd.sh +runscript reflex.txt
 ```
 
 <br />
@@ -316,10 +316,11 @@ __Replays from your server (all of your Reflex Arena dedicated server instances)
 # <a name="Purge"></a>Auto replays purge script (optional, recommended)
 If you don't want to manually delete replays when there's too many of them, you can setup a script that will be run daily using cron. The following should be done as the steam user. 
 
-### Create the script
 ```
 su steam
 ```
+
+### Create the script
 
 ```
 cd ~ && printf 'find /home/steam/reflex/replays/ -mindepth 1 -type f -mtime +60 -print0 | xargs -r0 rm -- –' >> replay_purge.sh && chmod +x replay_purge.sh
@@ -332,7 +333,7 @@ The +number value in the script is the age threshold after which replay files wi
 (crontab -l ; echo "* * */1 * * /home/steam/replay_purge.sh") | crontab - -
 ``` 
 
-The script will executed once a day.
+The script will be executed once a day.
 
 <br />
 <br />
