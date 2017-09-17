@@ -307,9 +307,6 @@ In order to apply the config change, you must restart the webserver !
 service apache2 restart
 ```
 
-<br />
-<br />
-
 __Replays from your server (all of your Reflex Arena dedicated server instances) can now be found at the following URL : http://yourserversip/replays/__
 
 <br />
@@ -337,8 +334,5 @@ The +number value in the script is the age threshold after which replay files wi
 ``` 
 
 The script will be executed once a day.
-
-<br />
-<br />
 
 __Files (Replays) from the /home/steam/reflex/replays/ directory will get deleted if they're older than 60 days.__
