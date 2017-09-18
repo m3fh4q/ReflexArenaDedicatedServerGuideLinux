@@ -30,9 +30,10 @@ This tutorial will guide you on how to host a/multiple Reflex Arena dedicated se
 <br />
 
 ## <a name="Requirements"></a>Requirements
-* Debian 9
+* Debian 9 x64 (What's used in this guide, instructions will probably work on other distributions with slight modifications).
 * 1 CPU and 1GB of RAM available on your server.
 * I recommend using the $2.50 or $5 offer from [Vultr](https://www.vultr.com/pricing/) (not affiliated with them, it's just what I currently use)
+* Reading carefully and understanding what you're doing.
 
 ## <a name="Problem"></a>Known problem : wine versions and Reflex Arena builds
 * When starting the server, it'll refuse to load if you're using an incompatible wine version.
@@ -335,3 +336,9 @@ The +number value in the script is the age threshold after which replay files wi
 The script will be executed once a day.
 
 __Files (Replays) from the /home/steam/reflex/replays/ directory will get deleted if they're older than 60 days.__
+
+<br />
+<br />
+<br />
+
+[A similar guide for Quake 3 Arena CPMA](https://github.com/m3fh4q/Quake3ArenaCPMADedicatedServerGuideLinux)
