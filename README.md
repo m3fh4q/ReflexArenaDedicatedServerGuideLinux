@@ -30,7 +30,7 @@ This tutorial will guide you on how to host a/multiple Reflex Arena dedicated se
 <br />
 
 ## <a name="Requirements"></a>Requirements
-* Debian 9 x64 (What's used in this guide, instructions will probably work on other distributions with slight modifications).
+* Debian 9 x64 (what's used in this guide, instructions will probably work on other linux distributions with some slight modifications).
 * 1 CPU and 1GB of RAM available on your server.
 * I recommend using the $2.50 or $5 offer from [Vultr](https://www.vultr.com/pricing/) (not affiliated with them, it's just what I currently use)
 * Reading carefully and understanding what you're doing.
