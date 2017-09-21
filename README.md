@@ -143,7 +143,8 @@ nano /home/steam/reflex/dedicatedserver.cfg
 
 (Ctrl-O to save, Ctrl-X to exit the editor)
 
-This file contains the server settings that will be applied when you launch the server. I recommend reading the file, it contains comments at each setting detailing what it does.
+This file contains the server settings that will be applied when you launch the server.
+[sv commands list and explanation](http://forums.reflexarena.com/index.php?/topic/4491-is-there-anyway-to-customize-games-beyond-mutators/&do=findComment&comment=36333)
 ```
 more /home/steam/reflex/dedicatedserver.cfg
 ```
@@ -180,7 +181,7 @@ Each instance of a Reflex dedicated server needs to be launched in a detached te
 Open as many screen sessions as Reflex Arena dedicated server instances you intend to host on your server, a 1 CPU and 1GB of RAM server can usually handle 2 Reflex server instances with sv_maxclients 8.
 
 ### Prepare your server(s) launch settings string
-Prepare a string of settings that will follow the launch command, use all the necessary sv_ commands (can be found in dedicatedserver.cfg)
+Prepare a string of settings that will follow the launch command, use all the necessary sv_ commands [sv commands list and explanation](http://forums.reflexarena.com/index.php?/topic/4491-is-there-anyway-to-customize-games-beyond-mutators/&do=findComment&comment=36333)
 
 Example of a string of settings : 
 
