@@ -55,7 +55,7 @@ su
 ## Install dependencies
 ### system
 ```
-dpkg --add-architecture i386 && apt-get install -y apt-transport-https && wget -nc https://repos.wine-staging.com/wine/Release.key && apt-key add Release.key && echo deb https://dl.winehq.org/wine-builds/debian/ stretch main >> /etc/apt/sources.list && apt-get update -y
+dpkg --add-architecture i386 && apt-get update -y && apt-get install -y apt-transport-https && wget -nc https://dl.winehq.org/wine-builds/Release.key && apt-key add Release.key && echo deb https://dl.winehq.org/wine-builds/debian/ stretch main >> /etc/apt/sources.list && echo deb http://ftp.de.debian.org/debian/ oldstable main >> /etc/apt/sources.list && apt-get update -y
 ```
 
 ### screen
